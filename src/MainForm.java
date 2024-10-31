@@ -13,26 +13,28 @@ public class MainForm extends JFrame{
     public MainForm(){
         setContentPane(panelMain);
         DemonstraceAlgoritmu demonstrace = new DemonstraceAlgoritmu();
-        demonstrace.setText("Čím se vyznačuje svobodný software (free software)?");
-        demonstrace.setVzorek("software");
+        demonstrace.setText("ab");
+        demonstrace.setVzorek("b");
         setSize(500,150);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                demonstrace.provedKrok();
 //                demonstrace.setText("Čím se vyznačuje svobodný software (free software)?");
 //                demonstrace.setVzorek("software");
                 if (hotovo == 0){
+                    demonstrace.provedKrok();
                     demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
                     //demonstrace.provedKrok();
                 }
                 System.out.println("Počet provedených kroků: " + demonstrace.getPocetKroku());
                 if(hotovo == -1){
-                    System.out.println("nenalezeno");
+                    JOptionPane.showMessageDialog(panelMain,"nenalezeno");
+//                    System.out.println("nenalezeno");
                 } else if (hotovo == 1){
-                    System.out.println("nalezeno");
+                    JOptionPane.showMessageDialog(panelMain,"nalezeno");
+//                    System.out.println("nalezeno");
                 }
             }
         });

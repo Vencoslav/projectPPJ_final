@@ -24,21 +24,21 @@ public class Main {
 //        } catch (Exception e) {
 //            throw new RuntimeException(e);
 //        }
-        DemonstraceAlgoritmu demonstrace = new DemonstraceAlgoritmu();
-        demonstrace.setText("Čím se vyznačuje svobodný software (free software)?");
-        demonstrace.setVzorek("software");
-        while(hotovo==0){
-            demonstrace.provedKrok();
-            demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
-        }
-        System.out.println("Počet provedených kroků: " + demonstrace.getPocetKroku());
-        if(hotovo == -1){
-            System.out.println("nenalezeno");
-        } else if (hotovo == 1){
-            System.out.println("nalezeno");
-        }
-//        MainForm mainForm = new MainForm();
-//        mainForm.setVisible(true);
+//        DemonstraceAlgoritmu demonstrace = new DemonstraceAlgoritmu();
+//        demonstrace.setText("Čím se vyznačuje svobodný software (free software)?");
+//        demonstrace.setVzorek("software");
+//        while(hotovo==0){
+//            demonstrace.provedKrok();
+//            demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
+//        }
+//        System.out.println("Počet provedených kroků: " + demonstrace.getPocetKroku());
+//        if(hotovo == -1){
+//            System.out.println("nenalezeno");
+//        } else if (hotovo == 1){
+//            System.out.println("nalezeno");
+//        }
+        MainForm mainForm = new MainForm();
+        mainForm.setVisible(true);
 
 //        BruteForceSearch force = new BruteForceSearch("text","vzorek");
 //        System.out.println(force);
