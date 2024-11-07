@@ -82,7 +82,8 @@ public class DemonstraceAlgoritmu {
         indexTextu = zapamatovanyIndex+1;
         indexVzorku = 0;
         setKroky(Kroky.krok6);
-        System.out.println("Krok 3:\nPřesuň kurzor na další znak po zapamatovaném místě a nastav kurzor na 1. znak ve vzorku, aby se mohl porovnávat o kousek dál celý vzorek.\n");
+        System.out.println("Krok 3:\nPřesuň kurzor na další znak po zapamatovaném místě a nastav kurzor na 1. " +
+                "znak ve vzorku, aby se mohl porovnávat o kousek dál celý vzorek.\n");
     }
     public void provedKrok4(){
         indexTextu++;
