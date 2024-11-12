@@ -8,8 +8,8 @@ public class MainForm extends JFrame{
     private JTextField tfText;
     private JPanel panelMain;
     private JButton fastBt;
-    private JButton setBt;
     private JTextField tfPopis;
+    private JButton btStep;
     public static int hotovo = 0;
 
     public MainForm(){
@@ -29,7 +29,7 @@ public class MainForm extends JFrame{
                 demonstrace.setVzorek(tfVzorek.getText());
                 demonstrace.setText(tfText.getText());
                 if (hotovo == 0){
-                  doTheTihng(demonstrace, true);
+                    popisKroku(demonstrace, true);
                     demonstrace.provedKrok();
                     demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
                     //demonstrace.provedKrok();
@@ -51,7 +51,7 @@ public class MainForm extends JFrame{
                 demonstrace.setText(tfText.getText());
                 while(hotovo==0){
 
-                    doTheTihng(demonstrace, false);
+                    popisKroku(demonstrace, false);
                     demonstrace.provedKrok();
                     demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
                 }
@@ -63,15 +63,31 @@ public class MainForm extends JFrame{
                 }
             }
         });
-        setBt.addActionListener(new ActionListener() {
+        btStep.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 demonstrace.setVzorek(tfVzorek.getText());
                 demonstrace.setText(tfText.getText());
+                if (hotovo==0){
+                    popisKroku(demonstrace, true);
+                    demonstrace.provedKrok();
+                    demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
+                    while(demonstrace.getKroky() != Kroky.krok1){
+                        popisKroku(demonstrace, true);
+                        demonstrace.provedKrok();
+                        demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
+                    }
+                }
+                System.out.println("Počet provedených kroků: " + demonstrace.getPocetKroku());
+                if(hotovo == -1){
+                    System.out.println("nenalezeno");
+                } else if (hotovo == 1){
+                    System.out.println("nalezeno");
+                }
             }
         });
     }
-    public void doTheTihng(DemonstraceAlgoritmu demonstrace, boolean is){
+    public void popisKroku(DemonstraceAlgoritmu demonstrace, boolean is){
                     String aktualniKrok = "";
 
         switch (demonstrace.getKroky()) {
