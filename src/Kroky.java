@@ -7,6 +7,11 @@ public enum Kroky {
     krok5,
     krok6,
     krok7,
-    krok8
+    krok8;
+    public static void main(String[] args) {
+        MainForm mainForm = new MainForm();
+        mainForm.setVisible(true);
+    }
 
 }
+

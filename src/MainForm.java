@@ -8,20 +8,34 @@ public class MainForm extends JFrame{
     private JTextField tfText;
     private JPanel panelMain;
     private JButton fastBt;
-    private JTextField tfPopis;
+
     private JButton btStep;
+    private JTextArea taPopis;
+    private JButton resetButton;
     public static int hotovo = 0;
 
+    public JTextField getTfText() {
+        return tfText;
+    }
+
+    public void setTfText(JTextField tfText) {
+        this.tfText = tfText;
+    }
+
     public MainForm(){
+
         setContentPane(panelMain);
-        DemonstraceAlgoritmu demonstrace = new DemonstraceAlgoritmu();
+        DemonstraceAlgoritmu demonstrace = new DemonstraceAlgoritmu(tfText, tfVzorek);
 //        demonstrace.setText("ab");
 //        demonstrace.setVzorek("b");
         setTitle("D.A.BF.S., s. r. o.");
-        setSize(500,300);
+        setSize(1000,600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        nextButton.addActionListener(new ActionListener() {
+        resetButton.addActionListener(e -> {
+            demonstrace.reset();
+        });
+        /*nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                demonstrace.setVzorek("software");
@@ -43,7 +57,7 @@ public class MainForm extends JFrame{
 //                    System.out.println("nalezeno");
                 }
             }
-        });
+        });*/
         fastBt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,9 +71,11 @@ public class MainForm extends JFrame{
                 }
                 System.out.println("Počet provedených kroků: " + demonstrace.getPocetKroku());
                 if(hotovo == -1){
-                    System.out.println("nenalezeno");
+                    JOptionPane.showMessageDialog(panelMain,"nenalezeno");
+//                    System.out.println("nenalezeno");
                 } else if (hotovo == 1){
-                    System.out.println("nalezeno");
+                    JOptionPane.showMessageDialog(panelMain,"nalezeno");
+//                    System.out.println("nalezeno");
                 }
             }
         });
@@ -72,7 +88,7 @@ public class MainForm extends JFrame{
                     popisKroku(demonstrace, true);
                     demonstrace.provedKrok();
                     demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
-                    while(demonstrace.getKroky() != Kroky.krok1){
+                    while(demonstrace.getKroky() != Kroky.krok1 && demonstrace.getKroky() != Kroky.krok7 && demonstrace.getKroky() != Kroky.krok8){
                         popisKroku(demonstrace, true);
                         demonstrace.provedKrok();
                         demonstrace.setPocetKroku(demonstrace.getPocetKroku()+1);
@@ -80,12 +96,21 @@ public class MainForm extends JFrame{
                 }
                 System.out.println("Počet provedených kroků: " + demonstrace.getPocetKroku());
                 if(hotovo == -1){
-                    System.out.println("nenalezeno");
+                    JOptionPane.showMessageDialog(panelMain,"nenalezeno");
+//                    System.out.println("nenalezeno");
                 } else if (hotovo == 1){
-                    System.out.println("nalezeno");
+                    JOptionPane.showMessageDialog(panelMain,"nalezeno" );
+//                    System.out.println("nalezeno");
                 }
             }
         });
+    }
+
+
+
+    public static void main(String[] args) {
+        MainForm mainForm = new MainForm();
+        mainForm.setVisible(true);
     }
     public void popisKroku(DemonstraceAlgoritmu demonstrace, boolean is){
                     String aktualniKrok = "";
@@ -110,7 +135,7 @@ public class MainForm extends JFrame{
             case krok8 -> aktualniKrok = "Krok 8:\nInformuj uživatele o nalezení. Vypiš hlášku „nalezeno“.\n";
         }
             if(is) {
-                tfPopis.setText(aktualniKrok);
+                taPopis.setText(taPopis.getText() + "\n" + aktualniKrok);
             }
 
     }

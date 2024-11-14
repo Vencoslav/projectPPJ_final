@@ -16,14 +16,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="65d1e" class="javax.swing.JButton" binding="nextButton" default-binding="true">
-        <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Next"/>
-        </properties>
-      </component>
       <scrollpane id="fcc37">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -49,7 +41,7 @@
       </component>
       <component id="af55d" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Text:"/>
@@ -70,7 +62,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="3031f" class="javax.swing.JTextField" binding="tfPopis">
+          <component id="bd351" class="javax.swing.JTextArea" binding="taPopis">
             <constraints/>
             <properties>
               <editable value="false"/>
@@ -78,12 +70,28 @@
           </component>
         </children>
       </scrollpane>
+      <component id="d624d" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Popis:"/>
+        </properties>
+      </component>
       <component id="825f7" class="javax.swing.JButton" binding="btStep">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Next"/>
+        </properties>
+      </component>
+      <component id="fd07d" class="javax.swing.JButton" binding="resetButton" default-binding="true">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="One step"/>
+          <text value="Reset"/>
         </properties>
       </component>
     </children>
